@@ -1,5 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
+import requests
 import time
 
 
@@ -40,13 +40,3 @@ def hiscores_retriever(name):
     req = requests.get(api_url + name)
     stats = [name] + ",".join(req.text.split("\n")[:-1]).split(",")
     return stats
-
-
-if __name__ == "__main__":
-    page = 1
-    for i in range(page, 3):
-        page_names = grab_page_names(page)
-        for name in page_names:
-            print(hiscores_retriever(name))
-        page += 1
-        time.sleep(0.5)

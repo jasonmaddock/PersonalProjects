@@ -1,0 +1,7 @@
+hiscores.csv
+tests/test_output.csv
+__pycache__/
+osrs/tests/__pycache__/
+*.py[cod]
+osrs/
+.gitignore
