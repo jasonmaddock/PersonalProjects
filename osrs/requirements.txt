@@ -1,0 +1,11 @@
+addict==2.4.0
+beautifulsoup4==4.11.1
+bs4==0.0.1
+certifi==2023.7.22
+charset-normalizer==2.0.12
+idna==3.4
+lxml==4.9.3
+osrs-highscores==0.8.0
+requests==2.27.1
+soupsieve==2.5
+urllib3==1.26.18
