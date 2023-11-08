@@ -32,38 +32,30 @@ class ListNode(object):
         self.next = next
 
 
-def create_linked_list(li):
-    lin1 = []
-    for y, i in enumerate(li):
-        if y + 1 != len(li):
-            lin1.append(ListNode(i, li[y + 1]))
-        else:
-            lin1.append(ListNode(i))
-    return lin1
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        ll1 = unwrap_linked_list(l1)
+        ll2 = unwrap_linked_list(l2)
+        ll1 = "".join(map(str, [i for i in ll1[::-1]]))
+        ll2 = "".join(map(str, [i for i in ll2[::-1]]))
+        out = str(int(ll1) + int(ll2))
+        out = [int(i) for i in out]
+        _next = None
+        for i in out:
+            _next = ListNode(i, _next)
+        return _next
 
 
-def addTwoNumbers(ll1, ll2):
-    l1 = "".join(map(str, [i.val for i in ll1[::-1]]))
-    l2 = "".join(map(str, [i.val for i in ll2[::-1]]))
-    out = str(int(l1) + int(l2))
-    out = create_linked_list([int(i) for i in out[::-1]])
-    return out
-
-
-def test_solution(l1, l2):
-    ll1 = create_linked_list(l1)
-    ll2 = create_linked_list(l2)
-    answer = addTwoNumbers(ll1, ll2)
-    print([i.val for i in answer])
-    return answer
-
-
-l1 = [2, 4, 3]
-l2 = [5, 6, 4]
-test_solution(l1, l2)
-l1 = [9, 9, 9, 9, 9, 9, 9]
-l2 = [9, 9, 9, 9]
-test_solution(l1, l2)
-l1 = [0]
-l2 = [0]
-test_solution(l1, l2)
+def unwrap_linked_list(ll):
+    li = []
+    data, _next = ll.val, ll.next
+    li.append(data)
+    while _next:
+        li.append(_next.val)
+        _next = _next.next
+    return li
