@@ -10,3 +10,4 @@ class Solution:
         if neg:
             rev_n = rev_n * -1
         return rev_n
+    

@@ -22,5 +22,4 @@ from reverse_integer import Solution
 def test(integer, expected_result):
     result = Solution.reverse(Solution, integer)
     assert result == expected_result
-    result2 = Solution.reverse(Solution, integer)
-    assert result2 == expected_result
+    
